@@ -20,3 +20,4 @@ runs/
 .env.*
 !.env.example
 local.toml
+assets/social-preview.html

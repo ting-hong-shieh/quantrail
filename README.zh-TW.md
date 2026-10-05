@@ -4,7 +4,7 @@
 
 <h1 align="center">QuantRail</h1>
 
-<p align="center"><b>會告訴你「這個結果能信到什麼程度」的回測。</b><br>
+<p align="center"><b>每個回測都會說點小謊，QuantRail 告訴你謊在哪裡。</b><br>
 資料治理 · 帳務正確的模擬 · 研究紀律</p>
 
 <p align="center">
@@ -106,7 +106,7 @@ QuantRail **不附任何市場資料**。資料由你自己提供，或用你自
 ## 架構
 
 <p align="center">
-  <img src="assets/architecture.svg" width="900" alt="你的資料經過資料治理與引擎，成為附信任報告的結果；帳務與市場模組支撐引擎，研究與統計檢驗結果，核心型別供所有層使用">
+  <img src="assets/architecture.svg" width="900" alt="會動的分層圖：core、data、accounting 與 markets、engine、research 與 stats，最上層是附信任報告的結果；資料封包由下往上穿過每一層">
 </p>
 
 設計理由見[架構文件](docs/zh-TW/architecture.md)與[架構決策紀錄](docs/adr/)。
