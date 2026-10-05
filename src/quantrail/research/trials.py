@@ -7,6 +7,7 @@ unfavourable trials cannot be dropped by rewriting the file.
 
 from __future__ import annotations
 
+import gzip
 import io
 import json
 import os
@@ -61,13 +62,16 @@ def write_source_snapshot(dest, root, paths=DEFAULT_SOURCE_PATHS) -> Path:
     """Deterministic tar.gz of the files code_version hashes; use when commit is absent or dirty."""
     root = Path(root)
     buffer = io.BytesIO()
-    with tarfile.open(fileobj=buffer, mode="w:gz") as archive:
+    with tarfile.open(fileobj=buffer, mode="w", format=tarfile.PAX_FORMAT) as archive:
         for path in _source_files(root, paths):
             info = archive.gettarinfo(path, arcname=str(path.relative_to(root)))
-            info.mtime = 0
+            # Strip everything that depends on when or by whom the file was written.
+            info.mtime, info.uid, info.gid, info.uname, info.gname = 0, 0, 0, "", ""
+            info.pax_headers = {}
             with path.open("rb") as handle:
                 archive.addfile(info, handle)
-    Path(dest).write_bytes(buffer.getvalue())
+    # gzip records a timestamp in its header; pin it so equal sources give equal bytes.
+    Path(dest).write_bytes(gzip.compress(buffer.getvalue(), mtime=0))
     return Path(dest)
 
 

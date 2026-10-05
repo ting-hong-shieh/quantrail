@@ -47,6 +47,18 @@ def test_config_hash_ignores_key_order_and_parent_must_exist(tmp_path):
         registry.register(**registration(parent_trial_id="nope"))
 
 
+def test_snapshot_bytes_do_not_depend_on_time(tmp_path, monkeypatch):
+    import time
+
+    (tmp_path / "src").mkdir()
+    (tmp_path / "src" / "m.py").write_text("a = 1\n")
+    one = write_source_snapshot(tmp_path / "one.tar.gz", tmp_path).read_bytes()
+    real = time.time
+    monkeypatch.setattr(time, "time", lambda: real() + 3600)  # an hour later
+    two = write_source_snapshot(tmp_path / "two.tar.gz", tmp_path).read_bytes()
+    assert one == two
+
+
 def test_uncommitted_edit_changes_source_hash_and_snapshot_is_deterministic(tmp_path):
     (tmp_path / "src").mkdir()
     (tmp_path / "src" / "m.py").write_text("a = 1\n")
