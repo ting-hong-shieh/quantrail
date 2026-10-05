@@ -104,7 +104,7 @@ QuantRail **ships no market data**. You bring your own, or fetch it with your ow
 ## Architecture
 
 <p align="center">
-  <img src="assets/architecture.svg" width="900" alt="Animated stack of layers: core, data, accounting and markets, engine, research and stats, and the result with its trust report on top; data packets rise through each layer">
+  <img src="assets/architecture.svg" width="900" alt="Animated flow: your data passes through data governance and the engine into a result with a trust report; accounting and market modules light up as they support the engine, research and stats light up as they judge the result; core types underlie everything">
 </p>
 
 Read the [architecture](docs/architecture.md) and the [decision records](docs/adr/) for the reasoning.
