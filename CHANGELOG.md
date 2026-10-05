@@ -6,6 +6,12 @@ All notable changes to QuantRail are recorded here. The format follows
 
 ## [Unreleased]
 
+### Changed
+
+- Position QuantRail around data governance and ledger-accurate simulation, with a new assumptions-focused tagline. Trial recording and statistical tools remain available as auxiliary tools; research design, rule freezing and out-of-sample policy belong to the user's workflow.
+- Correct the English and Traditional Chinese README and architecture claims about frozen contracts, holdout sealing, NAV residual enforcement, declaration-based trust flags and availability filtering. Distinguish historical manual comparisons from automated daily NAV parity checks, and describe parity as evidence of a faithful port rather than market-model correctness.
+- Align the Taiwan equity module's documented status with pre-alpha and regenerate the social preview and architecture diagram to match the revised wording. These changes update documentation, metadata and image text; simulation, research and statistics behaviour is unchanged.
+
 ## [0.1.1] - 2026-10-06
 
 ### Fixed
