@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/brand/option-b-verified.svg" width="96" alt="QuantRail 標誌">
+  <img src="assets/brand/quantrail-badge.svg" width="104" alt="QuantRail 標誌">
 </p>
 
 <h1 align="center">QuantRail</h1>
