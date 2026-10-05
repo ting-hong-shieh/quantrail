@@ -1,0 +1,24 @@
+# CodeRabbit review settings. The GitHub app itself is installed by a maintainer.
+language: en-US
+reviews:
+  profile: assertive
+  request_changes_workflow: false
+  high_level_summary: true
+  path_instructions:
+    - path: "src/quantrail/**"
+      instructions: |
+        QuantRail values correctness over features. Flag:
+        - money or quantities computed with floats where Decimal is used elsewhere;
+        - any value invented when evidence is missing (it must refuse with a reason instead);
+        - market-specific constants in core, accounting or engine code (ADR 0003);
+        - silent handling of unknown provenance, price basis or availability (ADR 0002);
+        - implicit "latest" versions (ADR 0005);
+        - anything that could read data dated after a decision (look-ahead).
+    - path: "tests/**"
+      instructions: |
+        Expected values must be stated independently, not produced by the code under test.
+        Tests must not read market data or credentials; flag any committed data files.
+    - path: "docs/**"
+      instructions: |
+        English is the source of truth; translations under docs/zh-TW must not add or drop content.
+        Flag claims about features that the code does not implement yet.
