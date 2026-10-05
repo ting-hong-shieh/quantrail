@@ -113,7 +113,11 @@ QuantRail **不附任何市場資料**。資料由你自己提供，或用你自
 
 ## 安裝
 
-尚未發布到 PyPI。開發環境：
+```bash
+pip install quantrail
+```
+
+開發環境：
 
 ```bash
 git clone https://github.com/ting-hong-shieh/quantrail.git
