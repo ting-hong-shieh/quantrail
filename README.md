@@ -22,9 +22,50 @@ QuantRail is built around three pillars:
 | **Ledger-accurate simulation** | Raw prices plus explicit events (fees, taxes, dividends, splits, funding, settlement). Every day's change in wealth must reconcile. |
 | **Research discipline** | Append-only trial registry, frozen experiment contracts, sealed holdout data, and built-in paired block bootstrap, Holm correction, deflated Sharpe ratio and probability of backtest overfitting. |
 
+## Quickstart
+
+```python
+import tempfile
+
+import numpy as np
+import pandas as pd
+
+import quantrail as qr
+from quantrail.markets.generic import ProportionalCosts
+
+# Any price table you have: only a date and a close are required.
+days = pd.bdate_range("2024-01-01", periods=250)
+returns = np.random.default_rng(0).normal(0.0004, 0.01, 250)
+prices = pd.DataFrame({"date": days, "close": 100 * np.exp(np.cumsum(returns))})
+
+store = tempfile.mkdtemp()
+data = qr.ingest(prices, root=store, dataset_id="my-prices", version="v1", instrument="X:ABC")
+
+asset = qr.Instrument("X:ABC", "X", "equity", "USD")
+result = qr.backtest(data, instrument=asset, capital=10_000,
+                     costs=ProportionalCosts(commission_rate="0.001"))
+print(result.report())
+```
+
+The report starts with what QuantRail could not verify, because nothing was declared:
+
+```text
+Trust report:
+  [!] SOURCE_UNKNOWN: Data source is not recorded.
+  [!] LICENCE_UNKNOWN: Licence is unknown: private research only; ...
+  [!] PRICE_BASIS_UNKNOWN: Prices may be raw or adjusted; ...
+  [!] ACCOUNTING_APPROXIMATE: Ledger-accurate accounting needs raw prices plus dividend and split events.
+  [!] AVAILABILITY_UNVERIFIED: Availability time is not declared; ...
+  [!] NO_OPEN_PRICES: No open prices: next-open execution cannot be modelled.
+  [!] EXECUTION_NEXT_CLOSE_PROXY: No open prices: orders fill at the next session's close.
+  [i] CALENDAR_FROM_PRICES: Sessions are inferred from price dates; ...
+```
+
+Declare provenance (`qr.Provenance`), price basis and availability (`qr.Declaration`), add open prices and corporate actions, and the caveats disappear one by one.
+
 ## Scope
 
-- Markets: Taiwan equities first, crypto next, via pluggable market modules.
+- Markets: pluggable market modules. The Taiwan equity module handles T+2 settlement, cash dividends, splits, odd-lot and board-lot sizes and the securities transaction tax; daily price limits and stock dividends are not modelled yet. Crypto is next.
 - QuantRail **ships no market data**. You bring your own, or fetch it with your own credentials from sources whose terms allow it.
 - No broker connectivity or live trading in this repository.
 
