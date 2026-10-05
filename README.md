@@ -8,6 +8,7 @@
 Data governance · ledger-accurate simulation · research discipline</p>
 
 <p align="center">
+  <a href="https://pypi.org/project/quantrail/"><img src="https://img.shields.io/pypi/v/quantrail?color=0F766E&logo=pypi&logoColor=white" alt="PyPI"></a>
   <a href="https://github.com/ting-hong-shieh/quantrail/actions/workflows/ci.yml"><img src="https://github.com/ting-hong-shieh/quantrail/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-3776AB?logo=python&logoColor=white" alt="Python 3.11 | 3.12 | 3.13">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-0F766E" alt="Apache-2.0"></a>
