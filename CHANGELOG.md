@@ -4,6 +4,18 @@ All notable changes to QuantRail are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/); before 1.0, a minor version may break the API.
 
+## [Unreleased]
+
+### Changed
+
+- CI and publishing use current major versions of their GitHub Actions (Node.js 24 runtimes; artifact downloads now fail on digest mismatch).
+- The source distribution ships only what is needed to build and test the package (about 43 KB instead of about 450 KB); README images stay on GitHub.
+- The README shows the PyPI version.
+
+### Fixed
+
+- Source snapshots in the trial registry are byte-for-byte deterministic (the gzip header no longer records the time).
+
 ## [0.1.0] - 2026-10-06
 
 First pre-release.
@@ -27,4 +39,5 @@ First pre-release.
 - Dependencies pin `pandas<3` ([#7](https://github.com/ting-hong-shieh/quantrail/issues/7)).
 - Not yet published on PyPI.
 
+[Unreleased]: https://github.com/ting-hong-shieh/quantrail/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/ting-hong-shieh/quantrail/releases/tag/v0.1.0

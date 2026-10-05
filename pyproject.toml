@@ -50,3 +50,7 @@ select = ["E", "F", "W", "I", "B", "UP"]
 [tool.ruff.lint.per-file-ignores]
 # Asset generators embed SVG/CSS templates; wrapping them hurts readability.
 "scripts/*" = ["E501"]
+
+[tool.hatch.build.targets.sdist]
+# Ship what is needed to build and test the package; README images stay on GitHub.
+include = ["src", "tests", "README.md", "README.zh-TW.md", "CHANGELOG.md", "LICENSE", "NOTICE", "pyproject.toml"]
