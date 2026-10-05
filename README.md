@@ -111,7 +111,11 @@ Read the [architecture](docs/architecture.md) and the [decision records](docs/ad
 
 ## Install
 
-Not yet on PyPI. For development:
+```bash
+pip install quantrail
+```
+
+For development:
 
 ```bash
 git clone https://github.com/ting-hong-shieh/quantrail.git
