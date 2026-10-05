@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "quantrail"
-version = "0.1.0"
+version = "0.1.1"
 description = "Quantitative research you can trust: data governance, ledger-accurate backtests and research discipline."
 readme = "README.md"
 license = "Apache-2.0"
