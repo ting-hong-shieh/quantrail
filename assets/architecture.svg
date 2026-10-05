@@ -1,113 +1,112 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" role="img"
-     aria-label="QuantRail architecture: data rises through core, data governance, accounting and markets,
-     the engine and research and statistics into a result with a trust report">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470" role="img"
+     aria-label="QuantRail architecture: your data flows through data governance and the engine into a result with a trust report; accounting and market modules support the engine; research and statistics judge the result; core types underlie everything">
   <title>QuantRail architecture</title>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="700" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="470" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#020617"/><stop offset="1" stop-color="#0F2A2E"/>
     </linearGradient>
-    <linearGradient id="beam" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0" stop-color="#F59E0B" stop-opacity="0"/><stop offset="1" stop-color="#F59E0B" stop-opacity="0.7"/>
-    </linearGradient>
-    <radialGradient id="halo"><stop offset="0" stop-color="#F59E0B" stop-opacity="0.6"/>
-      <stop offset="1" stop-color="#F59E0B" stop-opacity="0"/></radialGradient>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0 H0 V32" fill="none" stroke="#14B8A6" stroke-opacity="0.07"/>
+      <path d="M32 0 H0 V32" fill="none" stroke="#14B8A6" stroke-opacity="0.06"/>
     </pattern>
+    <radialGradient id="halo"><stop offset="0" stop-color="#F59E0B" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#F59E0B" stop-opacity="0"/></radialGradient>
+    <marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker>
+    <marker id="headlit" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5EEAD4"/></marker>
     <style>
-      .t { font: 700 17px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
-      .s { font: 13px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #94A3B8; }
-      .h { font: 800 13px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #5EEAD4;
-            letter-spacing: 3px; }
-      .glow { opacity: 0; animation: glow 4.8s ease-out infinite; }
-      .packet { opacity: 0; animation: rise 4.8s cubic-bezier(.45,.05,.55,.95) infinite; }
-      .pulse { animation: pulse 4.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-      @keyframes glow { 0% { opacity: 0; } 6% { opacity: 1; } 40% { opacity: 0; } 100% { opacity: 0; } }
-      @keyframes rise { 0% { opacity: 0; transform: translateY(0); } 8% { opacity: 1; }
-                        88% { opacity: 1; } 100% { opacity: 0; transform: translateY(-431.3px); } }
-      @keyframes pulse { 0%, 70% { transform: scale(1); opacity: .85; } 85% { transform: scale(1.35); opacity: 1; }
-                         100% { transform: scale(1); opacity: .85; } }
-      @media (prefers-reduced-motion: reduce) {
-        .glow, .packet, .pulse { animation: none; } .glow { opacity: .35; } .packet { opacity: 0; }
-      }
+      .t { font: 700 16px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .s { font: 12.5px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #94A3B8; }
+      .c { font: 600 12px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #F8FAFC; }
+      .h { font: 800 12px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #5EEAD4; letter-spacing: 3px; }
+      .lit { opacity: 0; animation: lit 5.0s ease-out infinite; }
+      .packet { animation: ride 5.0s cubic-bezier(.5,0,.5,1) infinite; }
+      @keyframes lit { 0% { opacity: 0; } 4% { opacity: 1; } 30% { opacity: 0; } 100% { opacity: 0; } }
+      @keyframes ride { 0% { transform: translateX(0); opacity: 0; } 4% { opacity: 1; }
+        62% { transform: translateX(724px); opacity: 1; }
+        70%, 100% { transform: translateX(724px); opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { .lit, .packet { animation: none; } .packet { opacity: 0; } }
     </style>
   </defs>
-  <rect width="960" height="700" rx="18" fill="url(#bg)"/>
-  <rect width="960" height="700" rx="18" fill="url(#grid)"/>
-  <text x="40" y="52" class="h">QUANTRAIL · ARCHITECTURE</text>
-  <text x="290" y="678" text-anchor="middle" class="s">▲ your data · CSV · Parquet · adapters</text>
-  <line x1="290.0" y1="615.2" x2="290.0" y2="183.9"
-        stroke="url(#beam)" stroke-width="3"/>
-  
-  <g class="plate">
-    <polygon points="171.5,558.2 290.0,626.6 290.0,641.8 171.5,573.4" fill="#0B2F2C"/>
-    <polygon points="408.5,558.2 290.0,626.6 290.0,641.8 408.5,573.4" fill="#0B2F2C" opacity="0.8"/>
-    <polygon points="290.0,489.8 408.5,558.2 290.0,626.6 171.5,558.2" fill="#134E4A"/>
-    <polygon class="glow" style="animation-delay:0.37s" points="290.0,489.8 408.5,558.2 290.0,626.6 171.5,558.2"
-             fill="#2DD4BF" fill-opacity="0.28" stroke="#2DD4BF" stroke-width="3"/>
-    <line x1="414.5" y1="558.2" x2="558" y2="558.2"
-          stroke="#334155" stroke-dasharray="3 4"/>
-    <text x="570" y="562.2" class="t" fill="#2DD4BF">core</text>
-    <text x="570" y="581.2" class="s">instruments · Decimal quantities · money · provenance</text>
+  <rect width="960" height="470" rx="18" fill="url(#bg)"/>
+  <rect width="960" height="470" rx="18" fill="url(#grid)"/>
+  <text class="h" x="28" y="50">QUANTRAIL · ARCHITECTURE</text>
+  <g class="packet"><circle cx="108.0" cy="131.0" r="17" fill="url(#halo)"/>
+    <circle cx="108.0" cy="131.0" r="6.5" fill="#FDE68A"/></g>
+  <g>
+    <rect x="24" y="92" width="168" height="78" rx="12" fill="#020617" stroke="#64748B" stroke-width="1.5" stroke-dasharray="6 5"/>
+    
+    <text class="t" x="108.0" y="121" text-anchor="middle" fill="#94A3B8">your data</text>
+    <text class="s" x="108.0" y="142" text-anchor="middle">CSV · Parquet · adapters</text>
   </g>
-  <g class="plate">
-    <polygon points="171.5,484.1 290.0,552.5 290.0,567.7 171.5,499.3" fill="#0B3B38"/>
-    <polygon points="408.5,484.1 290.0,552.5 290.0,567.7 408.5,499.3" fill="#0B3B38" opacity="0.8"/>
-    <polygon points="290.0,415.7 408.5,484.1 290.0,552.5 171.5,484.1" fill="#115E59"/>
-    <polygon class="glow" style="animation-delay:1.11s" points="290.0,415.7 408.5,484.1 290.0,552.5 171.5,484.1"
-             fill="#2DD4BF" fill-opacity="0.28" stroke="#2DD4BF" stroke-width="3"/>
-    <line x1="414.5" y1="484.1" x2="558" y2="484.1"
-          stroke="#334155" stroke-dasharray="3 4"/>
-    <text x="570" y="488.1" class="t" fill="#2DD4BF">data</text>
-    <text x="570" y="507.1" class="s">ingest · versions · manifests · trust flags</text>
+  <g stroke="#334155" stroke-width="2.5"><line x1="198" y1="124.0" x2="198" y2="138.0"/><line x1="206" y1="124.0" x2="206" y2="138.0"/><line x1="214" y1="124.0" x2="214" y2="138.0"/><line x1="222" y1="124.0" x2="222" y2="138.0"/><line x1="230" y1="124.0" x2="230" y2="138.0"/></g>
+  <g stroke="#94A3B8" stroke-width="2"><line x1="192" y1="127.0" x2="234" y2="127.0"/>
+    <line x1="192" y1="135.0" x2="234" y2="135.0"/></g>
+  <g>
+    <rect x="234" y="92" width="200" height="78" rx="12" fill="#0B1F24" stroke="#2DD4BF" stroke-width="1.5"/>
+    <rect class="lit" style="animation-delay:0.82s" x="234" y="92" width="200" height="78" rx="12" fill="#2DD4BF" fill-opacity="0.16" stroke="#2DD4BF" stroke-width="3"/>
+    <text class="t" x="334.0" y="121" text-anchor="middle" fill="#2DD4BF">data</text>
+    <text class="s" x="334.0" y="142" text-anchor="middle">ingest · versions · manifests</text><text class="s" x="334.0" y="159" text-anchor="middle">provenance · trust flags</text>
   </g>
-  <g class="plate">
-    <polygon points="171.5,410.0 290.0,478.4 290.0,493.6 171.5,425.2" fill="#0A4A45"/>
-    <polygon points="408.5,410.0 290.0,478.4 290.0,493.6 408.5,425.2" fill="#0A4A45" opacity="0.8"/>
-    <polygon points="290.0,341.6 408.5,410.0 290.0,478.4 171.5,410.0" fill="#0F766E"/>
-    <polygon class="glow" style="animation-delay:1.85s" points="290.0,341.6 408.5,410.0 290.0,478.4 171.5,410.0"
-             fill="#5EEAD4" fill-opacity="0.28" stroke="#5EEAD4" stroke-width="3"/>
-    <line x1="414.5" y1="410.0" x2="558" y2="410.0"
-          stroke="#334155" stroke-dasharray="3 4"/>
-    <text x="570" y="414.0" class="t" fill="#5EEAD4">accounting · markets</text>
-    <text x="570" y="433.0" class="s">ledger · settlement · tw_equity · crypto (planned)</text>
+  <g stroke="#334155" stroke-width="2.5"><line x1="440" y1="124.0" x2="440" y2="138.0"/><line x1="448" y1="124.0" x2="448" y2="138.0"/><line x1="456" y1="124.0" x2="456" y2="138.0"/><line x1="464" y1="124.0" x2="464" y2="138.0"/><line x1="472" y1="124.0" x2="472" y2="138.0"/></g>
+  <g stroke="#94A3B8" stroke-width="2"><line x1="434" y1="127.0" x2="476" y2="127.0"/>
+    <line x1="434" y1="135.0" x2="476" y2="135.0"/></g>
+  <g>
+    <rect x="476" y="92" width="210" height="78" rx="12" fill="#0B1F24" stroke="#2DD4BF" stroke-width="1.5"/>
+    <rect class="lit" style="animation-delay:1.88s" x="476" y="92" width="210" height="78" rx="12" fill="#2DD4BF" fill-opacity="0.16" stroke="#2DD4BF" stroke-width="3"/>
+    <text class="t" x="581.0" y="121" text-anchor="middle" fill="#2DD4BF">engine</text>
+    <text class="s" x="581.0" y="142" text-anchor="middle">decisions → orders → fills</text><text class="s" x="581.0" y="159" text-anchor="middle">daily NAV identity</text>
   </g>
-  <g class="plate">
-    <polygon points="171.5,335.9 290.0,404.3 290.0,419.5 171.5,351.1" fill="#0A4A45"/>
-    <polygon points="408.5,335.9 290.0,404.3 290.0,419.5 408.5,351.1" fill="#0A4A45" opacity="0.8"/>
-    <polygon points="290.0,267.5 408.5,335.9 290.0,404.3 171.5,335.9" fill="#0F766E"/>
-    <polygon class="glow" style="animation-delay:2.58s" points="290.0,267.5 408.5,335.9 290.0,404.3 171.5,335.9"
-             fill="#5EEAD4" fill-opacity="0.28" stroke="#5EEAD4" stroke-width="3"/>
-    <line x1="414.5" y1="335.9" x2="558" y2="335.9"
-          stroke="#334155" stroke-dasharray="3 4"/>
-    <text x="570" y="339.9" class="t" fill="#5EEAD4">engine</text>
-    <text x="570" y="358.9" class="s">decisions → orders → fills · daily NAV identity</text>
+  <g stroke="#334155" stroke-width="2.5"><line x1="692" y1="124.0" x2="692" y2="138.0"/><line x1="700" y1="124.0" x2="700" y2="138.0"/><line x1="708" y1="124.0" x2="708" y2="138.0"/><line x1="716" y1="124.0" x2="716" y2="138.0"/><line x1="724" y1="124.0" x2="724" y2="138.0"/></g>
+  <g stroke="#94A3B8" stroke-width="2"><line x1="686" y1="127.0" x2="728" y2="127.0"/>
+    <line x1="686" y1="135.0" x2="728" y2="135.0"/></g>
+  <g>
+    <rect x="728" y="92" width="208" height="78" rx="12" fill="#0B1F24" stroke="#F59E0B" stroke-width="1.5"/>
+    <rect class="lit" style="animation-delay:2.95s" x="728" y="92" width="208" height="78" rx="12" fill="#F59E0B" fill-opacity="0.16" stroke="#F59E0B" stroke-width="3"/>
+    <text class="t" x="832.0" y="121" text-anchor="middle" fill="#F59E0B">result</text>
+    <text class="s" x="832.0" y="142" text-anchor="middle">ledger · orders · events</text><text class="s" x="832.0" y="159" text-anchor="middle">+ trust report</text>
   </g>
-  <g class="plate">
-    <polygon points="171.5,261.8 290.0,330.2 290.0,345.4 171.5,277.0" fill="#0D7A70"/>
-    <polygon points="408.5,261.8 290.0,330.2 290.0,345.4 408.5,277.0" fill="#0D7A70" opacity="0.8"/>
-    <polygon points="290.0,193.4 408.5,261.8 290.0,330.2 171.5,261.8" fill="#14B8A6"/>
-    <polygon class="glow" style="animation-delay:3.32s" points="290.0,193.4 408.5,261.8 290.0,330.2 171.5,261.8"
-             fill="#99F6E4" fill-opacity="0.28" stroke="#99F6E4" stroke-width="3"/>
-    <line x1="414.5" y1="261.8" x2="558" y2="261.8"
-          stroke="#334155" stroke-dasharray="3 4"/>
-    <text x="570" y="265.8" class="t" fill="#99F6E4">research · stats</text>
-    <text x="570" y="284.8" class="s">trial registry · contracts · bootstrap · DSR · PBO</text>
+  <g>
+    <rect x="400" y="228" width="160" height="78" rx="12" fill="#0B1F24" stroke="#2DD4BF" stroke-width="1.5"/>
+    <rect class="lit" style="animation-delay:1.73s" x="400" y="228" width="160" height="78" rx="12" fill="#2DD4BF" fill-opacity="0.16" stroke="#2DD4BF" stroke-width="3"/>
+    <text class="t" x="480.0" y="257" text-anchor="middle" fill="#2DD4BF">accounting</text>
+    <text class="s" x="480.0" y="278" text-anchor="middle">multi-currency ledger</text><text class="s" x="480.0" y="295" text-anchor="middle">settlement · events</text>
   </g>
-  <g class="plate">
-    <polygon points="171.5,187.7 290.0,256.1 290.0,271.3 171.5,202.9" fill="#92400E"/>
-    <polygon points="408.5,187.7 290.0,256.1 290.0,271.3 408.5,202.9" fill="#92400E" opacity="0.8"/>
-    <polygon points="290.0,119.3 408.5,187.7 290.0,256.1 171.5,187.7" fill="#D97706"/>
-    <polygon class="glow" style="animation-delay:4.06s" points="290.0,119.3 408.5,187.7 290.0,256.1 171.5,187.7"
-             fill="#FCD34D" fill-opacity="0.28" stroke="#FCD34D" stroke-width="3"/>
-    <line x1="414.5" y1="187.7" x2="558" y2="187.7"
-          stroke="#334155" stroke-dasharray="3 4"/>
-    <text x="570" y="191.7" class="t" fill="#FCD34D">result + trust report</text>
-    <text x="570" y="210.7" class="s">every number, plus what could not be verified</text>
+  <g>
+    <rect x="580" y="228" width="186" height="78" rx="12" fill="#0B1F24" stroke="#2DD4BF" stroke-width="1.5"/>
+    <rect class="lit" style="animation-delay:1.73s" x="580" y="228" width="186" height="78" rx="12"
+          fill="#2DD4BF" fill-opacity="0.16" stroke="#2DD4BF" stroke-width="3"/>
+    <text class="t" x="673" y="257" text-anchor="middle" fill="#2DD4BF">markets</text>
+    <rect x="594" y="270" width="80" height="24" rx="12" fill="#115E59"/>
+    <text class="c" x="634" y="286" text-anchor="middle">tw_equity</text>
+    <rect x="682" y="270" width="72" height="24" rx="12" fill="none" stroke="#64748B" stroke-dasharray="4 3"/>
+    <text class="c" x="718" y="286" text-anchor="middle" fill="#94A3B8">crypto…</text>
   </g>
-  <g class="packet" style="animation-delay:0.00s"><circle cx="290.0" cy="615.2" r="16" fill="url(#halo)"/><circle cx="290.0" cy="615.2" r="6.5" fill="#FDE68A"/></g>
-  <g class="packet" style="animation-delay:1.60s"><circle cx="290.0" cy="615.2" r="16" fill="url(#halo)"/><circle cx="290.0" cy="615.2" r="6.5" fill="#FDE68A"/></g>
-  <g class="packet" style="animation-delay:3.20s"><circle cx="290.0" cy="615.2" r="16" fill="url(#halo)"/><circle cx="290.0" cy="615.2" r="6.5" fill="#FDE68A"/></g>
-  <circle cx="290.0" cy="157.9" r="26" fill="url(#halo)"/>
-  <polygon class="pulse" points="290.0,144.9 292.6,155.3 303.0,157.9 292.6,160.5 290.0,170.9 287.4,160.5 277.0,157.9 287.4,155.3" fill="#FBBF24"/>
+  <line x1="480" y1="228" x2="545" y2="176" stroke="#475569" stroke-width="2" marker-end="url(#head)"/>
+  <line class="lit" style="animation-delay:1.73s" x1="480" y1="228" x2="545" y2="176"
+        stroke="#5EEAD4" stroke-width="3" marker-end="url(#headlit)"/>
+  <line x1="673" y1="228" x2="625" y2="176" stroke="#475569" stroke-width="2" marker-end="url(#head)"/>
+  <line class="lit" style="animation-delay:1.73s" x1="673" y1="228" x2="625" y2="176"
+        stroke="#5EEAD4" stroke-width="3" marker-end="url(#headlit)"/>
+  <g>
+    <rect x="786" y="228" width="150" height="78" rx="12" fill="#0B1F24" stroke="#99F6E4" stroke-width="1.5"/>
+    <rect class="lit" style="animation-delay:3.00s" x="786" y="228" width="150" height="78" rx="12" fill="#99F6E4" fill-opacity="0.16" stroke="#99F6E4" stroke-width="3"/>
+    <text class="t" x="861.0" y="257" text-anchor="middle" fill="#99F6E4">research</text>
+    <text class="s" x="861.0" y="278" text-anchor="middle">trial registry</text><text class="s" x="861.0" y="295" text-anchor="middle">contracts · holdout</text>
+  </g>
+  <g>
+    <rect x="786" y="332" width="150" height="78" rx="12" fill="#0B1F24" stroke="#99F6E4" stroke-width="1.5"/>
+    <rect class="lit" style="animation-delay:3.00s" x="786" y="332" width="150" height="78" rx="12" fill="#99F6E4" fill-opacity="0.16" stroke="#99F6E4" stroke-width="3"/>
+    <text class="t" x="861.0" y="361" text-anchor="middle" fill="#99F6E4">stats</text>
+    <text class="s" x="861.0" y="382" text-anchor="middle">metrics · bootstrap</text><text class="s" x="861.0" y="399" text-anchor="middle">Holm · DSR · PBO</text>
+  </g>
+  <line x1="861" y1="228" x2="861" y2="176" stroke="#475569" stroke-width="2" marker-end="url(#head)"/>
+  <line class="lit" style="animation-delay:3.00s" x1="861" y1="228" x2="861" y2="176"
+        stroke="#5EEAD4" stroke-width="3" marker-end="url(#headlit)"/>
+  <line x1="861" y1="332" x2="861" y2="312" stroke="#475569" stroke-width="2" marker-end="url(#head)"/>
+  <line class="lit" style="animation-delay:3.00s" x1="861" y1="332" x2="861" y2="312"
+        stroke="#5EEAD4" stroke-width="3" marker-end="url(#headlit)"/>
+  <rect x="24" y="404" width="742" height="42" rx="12" fill="#0B2F2C" stroke="#134E4A"/>
+  <text class="t" x="44" y="431" fill="#5EEAD4">core</text>
+  <text class="s" x="96" y="431">instruments · Decimal quantities · money per currency · provenance · trust flags</text>
 </svg>

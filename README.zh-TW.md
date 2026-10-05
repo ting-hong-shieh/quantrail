@@ -106,7 +106,7 @@ QuantRail **不附任何市場資料**。資料由你自己提供，或用你自
 ## 架構
 
 <p align="center">
-  <img src="assets/architecture.svg" width="900" alt="會動的分層圖：core、data、accounting 與 markets、engine、research 與 stats，最上層是附信任報告的結果；資料封包由下往上穿過每一層">
+  <img src="assets/architecture.svg" width="900" alt="會動的流程圖：你的資料經過資料治理與引擎，成為附信任報告的結果；帳務與市場模組在支撐引擎時亮起，研究與統計在檢驗結果時亮起；核心型別是所有層的基礎">
 </p>
 
 設計理由見[架構文件](docs/zh-TW/architecture.md)與[架構決策紀錄](docs/adr/)。
