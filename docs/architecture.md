@@ -98,7 +98,7 @@ Untradable sessions produce `NO_FILL` with a reason (`SUSPENDED`, `RAW_PRICE_MIS
 
 ### Acceptance test for the first market module
 
-The Taiwan equity module must reproduce, day by day, a reference buy-and-hold simulation of an ETF over eight years with sixteen dividends and one 4-for-1 split, built independently and reconciled against a total-return index. This reference exists privately and is used to validate the port; the data itself is not distributed.
+The Taiwan equity module must reproduce, day by day, the private implementation it was ported from, on an ETF over eight years with sixteen dividends and one 4-for-1 split. That earlier implementation was itself checked independently: its buy-and-hold ledger was reconciled against a total-return index (every difference explained by cash drag, costs and timing) and against a second data source. Matching it proves the port is faithful; the independent evidence is that reconciliation. The data is not distributed.
 
 ## 7. Research discipline
 

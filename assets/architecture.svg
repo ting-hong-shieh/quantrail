@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="404" viewBox="0 0 960 404" role="img"
+     aria-label="QuantRail architecture: your data flows through data governance and the engine into a result with a trust report">
+  <title>QuantRail architecture</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94A3B8"/>
+    </marker>
+    <style>
+      .box { fill: #0F766E; }
+      .out { fill: #B45309; }
+      .soft { fill: none; stroke: #94A3B8; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .t { font: 700 15px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #FFFFFF; }
+      .s { font: 12px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #CCFBF1; }
+      .so { font: 12px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #FEF3C7; }
+      .g { font: 600 13px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #94A3B8; }
+      .gs { font: 12px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #94A3B8; }
+      .chip { fill: #115E59; }
+      .ct { font: 600 12px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #FFFFFF; }
+      .a { stroke: #94A3B8; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <!-- Row 1: the main flow -->
+  <rect class="soft" x="20" y="40" width="170" height="74" rx="12"/>
+  <text class="g" x="105" y="72" text-anchor="middle">Your data</text>
+  <text class="gs" x="105" y="92" text-anchor="middle">CSV · Parquet · adapters</text>
+
+  <rect class="box" x="230" y="40" width="200" height="74" rx="12"/>
+  <text class="t" x="330" y="70" text-anchor="middle">data</text>
+  <text class="s" x="330" y="90" text-anchor="middle">ingest · versions · manifests</text>
+  <text class="s" x="330" y="106" text-anchor="middle">provenance · trust flags</text>
+
+  <rect class="box" x="470" y="40" width="210" height="74" rx="12"/>
+  <text class="t" x="575" y="70" text-anchor="middle">engine</text>
+  <text class="s" x="575" y="90" text-anchor="middle">decisions → orders → fills</text>
+  <text class="s" x="575" y="106" text-anchor="middle">daily NAV identity</text>
+
+  <rect class="out" x="720" y="40" width="220" height="74" rx="12"/>
+  <text class="t" x="830" y="70" text-anchor="middle">result</text>
+  <text class="so" x="830" y="90" text-anchor="middle">ledger · orders · events</text>
+  <text class="so" x="830" y="106" text-anchor="middle">+ trust report</text>
+
+  <path class="a" d="M190 77 H226"/>
+  <path class="a" d="M430 77 H466"/>
+  <path class="a" d="M680 77 H716"/>
+
+  <!-- Row 2: what the engine stands on, and what judges the result -->
+  <rect class="box" x="400" y="160" width="150" height="74" rx="12"/>
+  <text class="t" x="475" y="190" text-anchor="middle">accounting</text>
+  <text class="s" x="475" y="210" text-anchor="middle">multi-currency ledger</text>
+  <text class="s" x="475" y="226" text-anchor="middle">settlement · events</text>
+
+  <rect class="box" x="570" y="160" width="180" height="74" rx="12"/>
+  <text class="t" x="660" y="186" text-anchor="middle">markets</text>
+  <rect class="chip" x="584" y="198" width="74" height="24" rx="12"/>
+  <text class="ct" x="621" y="214" text-anchor="middle">tw_equity</text>
+  <rect class="soft" x="666" y="198" width="72" height="24" rx="12"/>
+  <text class="ct" x="702" y="214" text-anchor="middle" style="fill:#CCFBF1">crypto…</text>
+
+  <path class="a" d="M475 160 L540 118"/>
+  <path class="a" d="M660 160 L615 118"/>
+
+  <rect class="box" x="770" y="160" width="170" height="74" rx="12"/>
+  <text class="t" x="855" y="190" text-anchor="middle">research</text>
+  <text class="s" x="855" y="210" text-anchor="middle">trial registry · frozen</text>
+  <text class="s" x="855" y="226" text-anchor="middle">contracts · holdout</text>
+
+  <rect class="box" x="770" y="258" width="170" height="74" rx="12"/>
+  <text class="t" x="855" y="286" text-anchor="middle">stats</text>
+  <text class="s" x="855" y="306" text-anchor="middle">metrics · bootstrap · Holm</text>
+  <text class="s" x="855" y="322" text-anchor="middle">deflated Sharpe · PBO</text>
+
+  <path class="a" d="M855 160 V118"/>
+  <path class="a" d="M855 258 V238"/>
+
+  <!-- Foundation -->
+  <rect class="box" x="20" y="348" width="920" height="40" rx="12" style="fill:#134E4A"/>
+  <text class="t" x="40" y="373">core</text>
+  <text class="s" x="88" y="373">instruments · Decimal quantities · money per currency · provenance · trust flags — used by every layer</text>
+</svg>

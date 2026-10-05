@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="QuantRail">
+  <title>QuantRail</title>
+  <!-- A ledger card: rows of the books, a return line, and a check where it reconciles. -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#0F766E"/>
+  <g stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" opacity="0.55">
+    <line x1="13" y1="20" x2="51" y2="20"/>
+    <line x1="13" y1="30" x2="51" y2="30"/>
+    <line x1="13" y1="40" x2="51" y2="40"/>
+  </g>
+  <path d="M12 46 L24 34 L32 39 L44 24" fill="none" stroke="#FFFFFF" stroke-width="4.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="46" r="9" fill="#F59E0B"/>
+  <path d="M43.5 46 L47 49.5 L53 42.5" fill="none" stroke="#0F172A" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

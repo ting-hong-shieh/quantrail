@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="QuantRail">
+  <title>QuantRail</title>
+  <!-- A pair of rails climbing like a price chart; evenly spaced crossties keep them in step. -->
+  <g stroke="#14B8A6" stroke-width="3" stroke-linecap="round">
+    <line x1="14.5" y1="40.5" x2="20.5" y2="46.5"/>
+    <line x1="23.5" y1="31.5" x2="29.5" y2="37.5"/>
+    <line x1="32.5" y1="22.5" x2="38.5" y2="28.5"/>
+    <line x1="41.5" y1="13.5" x2="47.5" y2="19.5"/>
+  </g>
+  <g stroke="#0F766E" stroke-width="5" stroke-linecap="round">
+    <line x1="8" y1="44" x2="44" y2="8"/>
+    <line x1="18" y1="54" x2="54" y2="18"/>
+  </g>
+  <circle cx="51" cy="11" r="6" fill="#F59E0B"/>
+</svg>

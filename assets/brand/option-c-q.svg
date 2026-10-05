@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="QuantRail">
+  <title>QuantRail</title>
+  <!-- The Q's ring, with its tail running out as a pair of rails. -->
+  <circle cx="27" cy="27" r="19" fill="none" stroke="#14B8A6" stroke-width="7"/>
+  <g stroke="#14B8A6" stroke-width="4" stroke-linecap="round">
+    <line x1="35" y1="41" x2="47" y2="53"/>
+    <line x1="41" y1="35" x2="53" y2="47"/>
+  </g>
+  <g stroke="#F59E0B" stroke-width="3" stroke-linecap="round">
+    <line x1="38" y1="44" x2="44" y2="38"/>
+    <line x1="44" y1="50" x2="50" y2="44"/>
+  </g>
+</svg>
