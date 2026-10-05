@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/brand/quantrail-badge.svg" width="104" alt="QuantRail 標誌">
+  <img src="https://raw.githubusercontent.com/ting-hong-shieh/quantrail/main/assets/brand/quantrail-badge.svg" width="104" alt="QuantRail 標誌">
 </p>
 
 <h1 align="center">QuantRail</h1>
@@ -11,20 +11,20 @@
   <a href="https://pypi.org/project/quantrail/"><img src="https://img.shields.io/pypi/v/quantrail?color=0F766E&logo=pypi&logoColor=white" alt="PyPI"></a>
   <a href="https://github.com/ting-hong-shieh/quantrail/actions/workflows/ci.yml"><img src="https://github.com/ting-hong-shieh/quantrail/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-3776AB?logo=python&logoColor=white" alt="Python 3.11 | 3.12 | 3.13">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-0F766E" alt="Apache-2.0"></a>
+  <a href="https://github.com/ting-hong-shieh/quantrail/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-0F766E" alt="Apache-2.0"></a>
   <img src="https://img.shields.io/badge/status-pre--alpha-F59E0B" alt="狀態：pre-alpha">
   <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff"></a>
 </p>
 
 <p align="center">
-  <a href="README.md">English</a> ·
-  <a href="docs/zh-TW/architecture.md">架構</a> ·
-  <a href="docs/adr/">架構決策</a> ·
-  <a href="CONTRIBUTING.md">貢獻指南</a>
+  <a href="https://github.com/ting-hong-shieh/quantrail/blob/main/README.md">English</a> ·
+  <a href="https://github.com/ting-hong-shieh/quantrail/blob/main/docs/zh-TW/architecture.md">架構</a> ·
+  <a href="https://github.com/ting-hong-shieh/quantrail/tree/main/docs/adr/">架構決策</a> ·
+  <a href="https://github.com/ting-hong-shieh/quantrail/blob/main/CONTRIBUTING.md">貢獻指南</a>
 </p>
 
 <p align="center">
-  <img src="assets/trust-report.svg" width="820" alt="QuantRail 的結果會先列出信任報告，說明所有無法確認的事項">
+  <img src="https://raw.githubusercontent.com/ting-hong-shieh/quantrail/main/assets/trust-report.svg" width="820" alt="QuantRail 的結果會先列出信任報告，說明所有無法確認的事項">
 </p>
 
 > **狀態：** 早期開發（v0.x），API 還會變動。本專案內容不構成投資建議。
@@ -92,7 +92,7 @@ Trust report:
 
 引擎與台股模組移植自一個私人研究實作，並且必須完全重現它。以一檔台灣 ETF 八年的資料（1,953 個交易日、16 次現金配息、一次 1 拆 4 的分割與一段停止交易），QuantRail 與五組參考執行的每日淨值**差距為零**：包含買進持有，以及三條會賣出的規則（87 筆含證交稅的賣出，其中有使用不交易區間的、也有滑價加倍的）。持股、現金、應收、應付、手續費、稅與滑價也全部一致。
 
-那個參考實作本身經過獨立核對：它的買進持有帳本與總報酬指數核對過，差距全部可由現金拖累、成本與時間對齊解釋，也與第二個資料來源核對過。資料不會散布；只要指向你自己的資料，[`tests/test_reference_parity.py`](tests/test_reference_parity.py) 就會重跑這個比對。
+那個參考實作本身經過獨立核對：它的買進持有帳本與總報酬指數核對過，差距全部可由現金拖累、成本與時間對齊解釋，也與第二個資料來源核對過。資料不會散布；只要指向你自己的資料，[`tests/test_reference_parity.py`](https://github.com/ting-hong-shieh/quantrail/blob/main/tests/test_reference_parity.py) 就會重跑這個比對。
 
 ## 市場
 
@@ -107,10 +107,10 @@ QuantRail **不附任何市場資料**。資料由你自己提供，或用你自
 ## 架構
 
 <p align="center">
-  <img src="assets/architecture.svg" width="900" alt="會動的流程圖：你的資料經過資料治理與引擎，成為附信任報告的結果；帳務與市場模組在支撐引擎時亮起，研究與統計在檢驗結果時亮起；核心型別是所有層的基礎">
+  <img src="https://raw.githubusercontent.com/ting-hong-shieh/quantrail/main/assets/architecture.svg" width="900" alt="會動的流程圖：你的資料經過資料治理與引擎，成為附信任報告的結果；帳務與市場模組在支撐引擎時亮起，研究與統計在檢驗結果時亮起；核心型別是所有層的基礎">
 </p>
 
-設計理由見[架構文件](docs/zh-TW/architecture.md)與[架構決策紀錄](docs/adr/)。
+設計理由見[架構文件](https://github.com/ting-hong-shieh/quantrail/blob/main/docs/zh-TW/architecture.md)與[架構決策紀錄](https://github.com/ting-hong-shieh/quantrail/tree/main/docs/adr/)。
 
 ## 安裝
 
@@ -129,8 +129,8 @@ uv run pytest
 
 ## 參與貢獻
 
-正確性優先於功能：帳務與統計的修改，必須附上預期值經過獨立計算的測試。每個提交都要簽署（DCO）。詳見 [CONTRIBUTING.md](CONTRIBUTING.md)。
+正確性優先於功能：帳務與統計的修改，必須附上預期值經過獨立計算的測試。每個提交都要簽署（DCO）。詳見 [CONTRIBUTING.md](https://github.com/ting-hong-shieh/quantrail/blob/main/CONTRIBUTING.md)。
 
 ## 授權
 
-Apache-2.0，見 [LICENSE](LICENSE) 與 [NOTICE](NOTICE)。透過 QuantRail 使用的資料，仍受該資料來源本身的條款約束。
+Apache-2.0，見 [LICENSE](https://github.com/ting-hong-shieh/quantrail/blob/main/LICENSE) 與 [NOTICE](https://github.com/ting-hong-shieh/quantrail/blob/main/NOTICE)。透過 QuantRail 使用的資料，仍受該資料來源本身的條款約束。

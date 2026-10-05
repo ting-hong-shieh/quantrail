@@ -18,3 +18,13 @@ def test_quickstart_runs_and_reports_the_documented_flags(name, capsys):
     assert documented, "README should show the expected trust report"
     for code_name in documented:
         assert code_name in output
+
+
+@pytest.mark.parametrize("name", ["README.md", "README.zh-TW.md"])
+def test_links_and_images_are_absolute_so_pypi_can_render_them(name):
+    """PyPI shows the README without the repository, so relative paths break there."""
+    text = (ROOT / name).read_text(encoding="utf-8")
+    html_refs = re.findall(r'(?:src|href)="([^"]+)"', text)
+    md_refs = re.findall(r"\]\(([^)\s]+)\)", text)
+    relative = [r for r in html_refs + md_refs if not re.match(r"^(https?:|#|mailto:)", r)]
+    assert relative == [], f"relative links in {name}: {relative}"
