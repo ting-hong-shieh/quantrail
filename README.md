@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/brand/quantrail-badge.svg" width="104" alt="QuantRail logo">
+  <img src="https://raw.githubusercontent.com/ting-hong-shieh/quantrail/main/assets/brand/quantrail-badge.svg" width="104" alt="QuantRail logo">
 </p>
 
 <h1 align="center">QuantRail</h1>
@@ -11,20 +11,20 @@ Data governance · ledger-accurate simulation · research discipline</p>
   <a href="https://pypi.org/project/quantrail/"><img src="https://img.shields.io/pypi/v/quantrail?color=0F766E&logo=pypi&logoColor=white" alt="PyPI"></a>
   <a href="https://github.com/ting-hong-shieh/quantrail/actions/workflows/ci.yml"><img src="https://github.com/ting-hong-shieh/quantrail/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-3776AB?logo=python&logoColor=white" alt="Python 3.11 | 3.12 | 3.13">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-0F766E" alt="Apache-2.0"></a>
+  <a href="https://github.com/ting-hong-shieh/quantrail/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-0F766E" alt="Apache-2.0"></a>
   <img src="https://img.shields.io/badge/status-pre--alpha-F59E0B" alt="Status: pre-alpha">
   <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff"></a>
 </p>
 
 <p align="center">
-  <a href="README.zh-TW.md">繁體中文</a> ·
-  <a href="docs/architecture.md">Architecture</a> ·
-  <a href="docs/adr/">Decisions</a> ·
-  <a href="CONTRIBUTING.md">Contributing</a>
+  <a href="https://github.com/ting-hong-shieh/quantrail/blob/main/README.zh-TW.md">繁體中文</a> ·
+  <a href="https://github.com/ting-hong-shieh/quantrail/blob/main/docs/architecture.md">Architecture</a> ·
+  <a href="https://github.com/ting-hong-shieh/quantrail/tree/main/docs/adr/">Decisions</a> ·
+  <a href="https://github.com/ting-hong-shieh/quantrail/blob/main/CONTRIBUTING.md">Contributing</a>
 </p>
 
 <p align="center">
-  <img src="assets/trust-report.svg" width="820" alt="A QuantRail result opens with a trust report listing everything it could not verify">
+  <img src="https://raw.githubusercontent.com/ting-hong-shieh/quantrail/main/assets/trust-report.svg" width="820" alt="A QuantRail result opens with a trust report listing everything it could not verify">
 </p>
 
 > **Status:** early development (v0.x); APIs will change. Nothing here is investment advice.
@@ -90,7 +90,7 @@ Declare provenance (`qr.Provenance`), price basis and availability (`qr.Declarat
 
 The engine and the Taiwan equity module were ported from a private research implementation and must reproduce it exactly. On eight years of a Taiwan ETF (1,953 sessions, 16 cash dividends, one 4-for-1 split and a trading suspension), QuantRail matches the daily net asset value of five reference runs with **zero difference**: buy-and-hold, and three rules that sell (87 sells with securities transaction tax, including runs with a no-trade band and with doubled slippage). Units, cash, receivables, payables, commission, tax and slippage all match.
 
-That reference was itself checked independently: its buy-and-hold ledger was reconciled against a total-return index, with every difference explained by cash drag, costs and timing, and against a second data source. The data is not distributed; [`tests/test_reference_parity.py`](tests/test_reference_parity.py) reruns the comparison when you point it at your own copy.
+That reference was itself checked independently: its buy-and-hold ledger was reconciled against a total-return index, with every difference explained by cash drag, costs and timing, and against a second data source. The data is not distributed; [`tests/test_reference_parity.py`](https://github.com/ting-hong-shieh/quantrail/blob/main/tests/test_reference_parity.py) reruns the comparison when you point it at your own copy.
 
 ## Markets
 
@@ -105,10 +105,10 @@ QuantRail **ships no market data**. You bring your own, or fetch it with your ow
 ## Architecture
 
 <p align="center">
-  <img src="assets/architecture.svg" width="900" alt="Animated flow: your data passes through data governance and the engine into a result with a trust report; accounting and market modules light up as they support the engine, research and stats light up as they judge the result; core types underlie everything">
+  <img src="https://raw.githubusercontent.com/ting-hong-shieh/quantrail/main/assets/architecture.svg" width="900" alt="Animated flow: your data passes through data governance and the engine into a result with a trust report; accounting and market modules light up as they support the engine, research and stats light up as they judge the result; core types underlie everything">
 </p>
 
-Read the [architecture](docs/architecture.md) and the [decision records](docs/adr/) for the reasoning.
+Read the [architecture](https://github.com/ting-hong-shieh/quantrail/blob/main/docs/architecture.md) and the [decision records](https://github.com/ting-hong-shieh/quantrail/tree/main/docs/adr/) for the reasoning.
 
 ## Install
 
@@ -127,8 +127,8 @@ uv run pytest
 
 ## Contributing
 
-Correctness comes before features: accounting and statistics changes need tests with independently computed expectations. Every commit is signed off (DCO). See [CONTRIBUTING.md](CONTRIBUTING.md).
+Correctness comes before features: accounting and statistics changes need tests with independently computed expectations. Every commit is signed off (DCO). See [CONTRIBUTING.md](https://github.com/ting-hong-shieh/quantrail/blob/main/CONTRIBUTING.md).
 
 ## Licence
 
-Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE). Data you use with QuantRail remains subject to its own source's terms.
+Apache-2.0. See [LICENSE](https://github.com/ting-hong-shieh/quantrail/blob/main/LICENSE) and [NOTICE](https://github.com/ting-hong-shieh/quantrail/blob/main/NOTICE). Data you use with QuantRail remains subject to its own source's terms.
