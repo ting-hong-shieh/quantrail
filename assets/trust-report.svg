@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1011" height="448" viewBox="0 0 1011 448"
+     role="img" aria-label="QuantRail trust report printed by the README quickstart">
+  <rect width="1011" height="448" rx="12" fill="#0F172A"/>
+  <circle cx="22" cy="20" r="6" fill="#F87171"/><circle cx="42" cy="20" r="6" fill="#FBBF24"/>
+  <circle cx="62" cy="20" r="6" fill="#34D399"/>
+  <text x="505.5" y="25" fill="#64748B" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">python quickstart.py</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13">
+    <text x="22" y="63" fill="#5EEAD4" xml:space="preserve">Trust report:</text>
+    <text x="22" y="84" xml:space="preserve">  <tspan fill="#F59E0B">[!]</tspan> <tspan fill="#F8FAFC" font-weight="700">SOURCE_UNKNOWN</tspan><tspan fill="#94A3B8">: Data source is not recorded.</tspan></text>
+    <text x="22" y="105" xml:space="preserve">  <tspan fill="#F59E0B">[!]</tspan> <tspan fill="#F8FAFC" font-weight="700">LICENCE_UNKNOWN</tspan><tspan fill="#94A3B8">: Licence is unknown: private research only; exporting or sharing requires an explicit acknowledgement.</tspan></text>
+    <text x="22" y="126" xml:space="preserve">  <tspan fill="#F59E0B">[!]</tspan> <tspan fill="#F8FAFC" font-weight="700">PRICE_BASIS_UNKNOWN</tspan><tspan fill="#94A3B8">: Prices may be raw or adjusted; accounting uses a conservative approximation.</tspan></text>
+    <text x="22" y="147" xml:space="preserve">  <tspan fill="#F59E0B">[!]</tspan> <tspan fill="#F8FAFC" font-weight="700">ACCOUNTING_APPROXIMATE</tspan><tspan fill="#94A3B8">: Ledger-accurate accounting needs raw prices plus dividend and split events.</tspan></text>
+    <text x="22" y="168" xml:space="preserve">  <tspan fill="#F59E0B">[!]</tspan> <tspan fill="#F8FAFC" font-weight="700">AVAILABILITY_UNVERIFIED</tspan><tspan fill="#94A3B8">: Availability time is not declared; results may use data before it was known.</tspan></text>
+    <text x="22" y="189" xml:space="preserve">  <tspan fill="#F59E0B">[!]</tspan> <tspan fill="#F8FAFC" font-weight="700">NO_OPEN_PRICES</tspan><tspan fill="#94A3B8">: No open prices: next-open execution cannot be modelled.</tspan></text>
+    <text x="22" y="210" xml:space="preserve">  <tspan fill="#F59E0B">[!]</tspan> <tspan fill="#F8FAFC" font-weight="700">EXECUTION_NEXT_CLOSE_PROXY</tspan><tspan fill="#94A3B8">: No open prices: orders fill at the next session&#x27;s close.</tspan></text>
+    <text x="22" y="231" xml:space="preserve">  <tspan fill="#38BDF8">[i]</tspan> <tspan fill="#F8FAFC" font-weight="700">CALENDAR_FROM_PRICES</tspan><tspan fill="#94A3B8">: Sessions are inferred from price dates; missing sessions cannot be detected.</tspan></text>
+    <text x="22" y="252" fill="#CBD5E1" xml:space="preserve"></text>
+    <text x="22" y="273" fill="#5EEAD4" xml:space="preserve">Summary:</text>
+    <text x="22" y="294" fill="#CBD5E1" xml:space="preserve">  start: 2024-01-01</text>
+    <text x="22" y="315" fill="#CBD5E1" xml:space="preserve">  end: 2024-12-13</text>
+    <text x="22" y="336" fill="#CBD5E1" xml:space="preserve">  final_nav: 10854.0654</text>
+    <text x="22" y="357" fill="#CBD5E1" xml:space="preserve">  cagr: 0.0901</text>
+    <text x="22" y="378" fill="#CBD5E1" xml:space="preserve">  annual_volatility: 0.1608</text>
+    <text x="22" y="399" fill="#CBD5E1" xml:space="preserve">  sharpe: 0.5940</text>
+    <text x="22" y="420" fill="#CBD5E1" xml:space="preserve">  max_drawdown: -0.1223</text>
+  </g>
+</svg>
