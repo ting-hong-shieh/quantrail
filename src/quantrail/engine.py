@@ -155,7 +155,9 @@ def run_target_weights(*, instrument, costs, settle, prices, calendar, actions, 
                     commission, tax = costs.fees(instrument, side, quantity, fill_price, d)
                     ledger.book_fill(Fill(instrument, side, quantity, fill_price, d, settle(d),
                                           commission, tax, f"{label}-{d:%Y%m%d}"))
-                    slippage = abs(fill_price - open_price) * quantity
+                    # Signed, so tick rounding in the trader's favour is not booked as a cost.
+                    per_unit = fill_price - open_price if side == "BUY" else open_price - fill_price
+                    slippage = per_unit * quantity
                     orders.append({"date": day, "side": side, "quantity": float(quantity),
                                    "open": float(open_price), "fill_price": float(fill_price),
                                    "target_weight": target, "reinvestment": reinvesting,

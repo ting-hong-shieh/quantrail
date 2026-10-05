@@ -24,9 +24,50 @@ QuantRail 建立在三個支柱上：
 | **帳務正確的模擬** | 原始價格加上明確的事件（手續費、稅、配息、分割、資金費率、交割）。每天的財富變動都必須對得上。 |
 | **研究紀律** | 只能追加的 trial 登記、凍結的實驗契約、封存的樣本外資料，以及內建的配對區塊 bootstrap、Holm 校正、Deflated Sharpe Ratio 與回測過度擬合機率（PBO）。 |
 
+## 快速開始
+
+```python
+import tempfile
+
+import numpy as np
+import pandas as pd
+
+import quantrail as qr
+from quantrail.markets.generic import ProportionalCosts
+
+# 任何價格表都可以：只需要日期和收盤價。
+days = pd.bdate_range("2024-01-01", periods=250)
+returns = np.random.default_rng(0).normal(0.0004, 0.01, 250)
+prices = pd.DataFrame({"date": days, "close": 100 * np.exp(np.cumsum(returns))})
+
+store = tempfile.mkdtemp()
+data = qr.ingest(prices, root=store, dataset_id="my-prices", version="v1", instrument="X:ABC")
+
+asset = qr.Instrument("X:ABC", "X", "equity", "USD")
+result = qr.backtest(data, instrument=asset, capital=10_000,
+                     costs=ProportionalCosts(commission_rate="0.001"))
+print(result.report())
+```
+
+因為什麼都沒有宣告，報告會先列出 QuantRail 無法確認的事項：
+
+```text
+Trust report:
+  [!] SOURCE_UNKNOWN: Data source is not recorded.
+  [!] LICENCE_UNKNOWN: Licence is unknown: private research only; ...
+  [!] PRICE_BASIS_UNKNOWN: Prices may be raw or adjusted; ...
+  [!] ACCOUNTING_APPROXIMATE: Ledger-accurate accounting needs raw prices plus dividend and split events.
+  [!] AVAILABILITY_UNVERIFIED: Availability time is not declared; ...
+  [!] NO_OPEN_PRICES: No open prices: next-open execution cannot be modelled.
+  [!] EXECUTION_NEXT_CLOSE_PROXY: No open prices: orders fill at the next session's close.
+  [i] CALENDAR_FROM_PRICES: Sessions are inferred from price dates; ...
+```
+
+宣告資料來源與授權（`qr.Provenance`）、價格種類與可得時間（`qr.Declaration`），再補上開盤價和配息分割事件，這些警告就會一項一項消失。
+
 ## 範圍
 
-- 市場：先做台股，接著是加密貨幣，以可替換的市場模組實作。台股的 T+2、除權息、整股與零股、漲跌停、證交稅都會正確處理。
+- 市場：以可替換的市場模組實作。台股模組已處理 T+2 交割、現金股利、分割、零股與整張、證交稅；漲跌停與股票股利（除權）尚未建模。接下來是加密貨幣。
 - QuantRail **不附任何市場資料**。資料由你自己提供，或用你自己的帳號，從條款允許程式化存取的來源取得。
 - 本 repo 不包含券商連線或實盤交易。
 
