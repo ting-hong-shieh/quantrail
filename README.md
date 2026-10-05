@@ -4,7 +4,7 @@
 
 <h1 align="center">QuantRail</h1>
 
-<p align="center"><b>Backtests that tell you how far to trust them.</b><br>
+<p align="center"><b>Every backtest lies a little. QuantRail tells you where.</b><br>
 Data governance · ledger-accurate simulation · research discipline</p>
 
 <p align="center">
@@ -104,7 +104,7 @@ QuantRail **ships no market data**. You bring your own, or fetch it with your ow
 ## Architecture
 
 <p align="center">
-  <img src="assets/architecture.svg" width="900" alt="Your data flows through data governance and the engine into a result with a trust report; accounting and market modules sit under the engine, research and stats judge the result, and core types are shared by every layer">
+  <img src="assets/architecture.svg" width="900" alt="Animated stack of layers: core, data, accounting and markets, engine, research and stats, and the result with its trust report on top; data packets rise through each layer">
 </p>
 
 Read the [architecture](docs/architecture.md) and the [decision records](docs/adr/) for the reasoning.
