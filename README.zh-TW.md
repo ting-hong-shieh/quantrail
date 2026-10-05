@@ -4,8 +4,8 @@
 
 <h1 align="center">QuantRail</h1>
 
-<p align="center"><b>每個回測都會說點小謊，QuantRail 告訴你謊在哪裡。</b><br>
-資料治理 · 帳務正確的模擬 · 研究紀律</p>
+<p align="center"><b>每個回測都有假設，QuantRail 把它們攤開。</b><br>
+Data governance · ledger-accurate simulation</p>
 
 <p align="center">
   <a href="https://pypi.org/project/quantrail/"><img src="https://img.shields.io/pypi/v/quantrail?color=0F766E&logo=pypi&logoColor=white" alt="PyPI"></a>
@@ -24,7 +24,7 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ting-hong-shieh/quantrail/main/assets/trust-report.svg" width="820" alt="QuantRail 的結果會先列出信任報告，說明所有無法確認的事項">
+  <img src="https://raw.githubusercontent.com/ting-hong-shieh/quantrail/main/assets/trust-report.svg" width="820" alt="QuantRail 的結果會先列出信任報告，說明已記錄的注意事項">
 </p>
 
 > **狀態：** 早期開發（v0.x），API 還會變動。本專案內容不構成投資建議。
@@ -33,19 +33,20 @@
 
 ## 為什麼需要 QuantRail？
 
-大多數回測很容易做得好看，卻很難讓人相信：
+遇到以下情況，回測結果就難以評估：
 
-- 用「部位 × 還原報酬」計算財富，配息、分割、交割只是近似，甚至重複計算；
-- 沒有人記錄結果用的是哪個資料版本、什麼授權、資料在什麼時間點才拿得到；
+- 用「部位 × 還原報酬」計算財富，配息、分割、交割可能只是近似，甚至重複計算；
+- 沒有記錄結果用的是哪個資料版本、什麼授權、資料在什麼時間點才拿得到；
 - 找到「贏家」之前試過的許多變體都被遺忘，過度擬合的程度無從衡量。
 
-QuantRail 建立在三個支柱上：
+QuantRail 建立在兩個支柱上：
 
 | 支柱 | 內容 |
 | --- | --- |
-| **資料治理** | 有版本、有 hash 的資料集，manifest 記錄來源、授權、價格種類、時間點可得性與品質檢查。「不知道」是允許的，但一定會被報告，不會被隱藏。 |
-| **帳務正確的模擬** | 原始價格加上明確的事件（手續費、稅、配息、分割、交割）。每天的財富變動都必須對得上。 |
-| **研究紀律** | 只能追加的 trial 登記、凍結的實驗契約、封存的樣本外資料，以及內建的配對區塊 bootstrap、Holm 校正、Deflated Sharpe Ratio 與回測過度擬合機率（PBO）。 |
+| **資料治理** | 有版本、有 hash 的資料集，manifest 記錄來源、授權、價格種類、宣告的可得時間與品質檢查。可得時間目前只是宣告文字，不會依資料何時可得逐筆過濾。「不知道」是允許的，但一定會被報告，不會被隱藏。 |
+| **帳務正確的模擬** | 原始價格加上明確的事件（手續費、稅、配息、分割、交割）。引擎記錄每日 NAV 恆等式的殘差；殘差超出容差時，不會拒絕執行。 |
+
+**另附輔助工具（Also included）：** 只能追加的 trial 登記、配對區塊 bootstrap、Holm 校正、Deflated Sharpe Ratio 與回測過度擬合機率（PBO）。研究設計、規則凍結與樣本外政策由你自己的研究流程負責；QuantRail 不會凍結實驗契約或封存樣本外資料。
 
 ## 快速開始
 
@@ -72,7 +73,7 @@ result = qr.backtest(data, instrument=asset, capital=10_000,
 print(result.report())
 ```
 
-因為什麼都沒有宣告，報告會先列出 QuantRail 無法確認的事項：
+報告會先列出未宣告的資料資訊，以及回測使用的假設：
 
 ```text
 Trust report:
@@ -86,19 +87,19 @@ Trust report:
   [i] CALENDAR_FROM_PRICES: Sessions are inferred from price dates; ...
 ```
 
-宣告資料來源與授權（`qr.Provenance`）、價格種類與可得時間（`qr.Declaration`），再補上開盤價和配息分割事件，這些警告就會一項一項消失。
+資料來源與授權（`qr.Provenance`）、價格種類與可得時間（`qr.Declaration`）會影響宣告相關的旗標：它們的 `trust()` 方法只看你宣告了什麼，不會用資料核對宣告是否屬實。其他旗標反映輸入資料與成交假設；例如，補上開盤價會移除以次日收盤價成交的警告，但推定交易日曆的提醒仍會保留。
 
-## 逐分驗證
+## 與參考實作的一致性
 
-引擎與台股模組移植自一個私人研究實作，並且必須完全重現它。以一檔台灣 ETF 八年的資料（1,953 個交易日、16 次現金配息、一次 1 拆 4 的分割與一段停止交易），QuantRail 與五組參考執行的每日淨值**差距為零**：包含買進持有，以及三條會賣出的規則（87 筆含證交稅的賣出，其中有使用不交易區間的、也有滑價加倍的）。持股、現金、應收、應付、手續費、稅與滑價也全部一致。
+引擎與台股模組移植自一個私人研究實作。在當時的移植比對中，以一檔台灣 ETF 八年的資料（1,953 個交易日、16 次現金配息、一次 1 拆 4 的分割與一段停止交易），QuantRail 與五組參考執行的每日淨值**差距為零**：包含買進持有，以及三條會賣出的規則（87 筆含證交稅的賣出，其中有使用不交易區間的、也有滑價加倍的）。持股、現金、應收、應付、手續費、稅與滑價也在當時手動比對過；自動化 parity 測試只斷言每日 NAV。這個比對檢查移植是否重現參考實作，不代表市場模型正確。
 
-那個參考實作本身經過獨立核對：它的買進持有帳本與總報酬指數核對過，差距全部可由現金拖累、成本與時間對齊解釋，也與第二個資料來源核對過。資料不會散布；只要指向你自己的資料，[`tests/test_reference_parity.py`](https://github.com/ting-hong-shieh/quantrail/blob/main/tests/test_reference_parity.py) 就會重跑這個比對。
+那個參考實作本身經過獨立核對：它的買進持有帳本與總報酬指數核對過，差距全部可由現金拖累、成本與時間對齊解釋，也與第二個資料來源核對過。資料不會散布；只要指向你自己的資料，[`tests/test_reference_parity.py`](https://github.com/ting-hong-shieh/quantrail/blob/main/tests/test_reference_parity.py) 就會重跑每日 NAV 的比對。
 
 ## 市場
 
 | 模組 | 狀態 | 已支援 | 尚未支援 |
 | --- | --- | --- | --- |
-| `markets.tw_equity`：台股與 ETF | Beta | T+2 交割、含最低費用的手續費、有來源與生效區間的證交稅、現金股利、分割、零股與整張 | 漲跌停、股票股利（[#15](https://github.com/ting-hong-shieh/quantrail/issues/15)） |
+| `markets.tw_equity`：台股與 ETF | Pre-alpha | T+2 交割、含最低費用的手續費、有來源與生效區間的證交稅、現金股利、分割、零股與整張 | 漲跌停、股票股利（[#15](https://github.com/ting-hong-shieh/quantrail/issues/15)） |
 | `markets.generic`：任何市場 | 可用 | 比例手續費（含最低費用）、賣出稅 | 市場專屬規則 |
 | 加密貨幣 | 規劃中（[#5](https://github.com/ting-hong-shieh/quantrail/issues/5)） | | 先做現貨，再做永續合約 |
 
@@ -107,7 +108,7 @@ QuantRail **不附任何市場資料**。資料由你自己提供，或用你自
 ## 架構
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ting-hong-shieh/quantrail/main/assets/architecture.svg" width="900" alt="會動的流程圖：你的資料經過資料治理與引擎，成為附信任報告的結果；帳務與市場模組在支撐引擎時亮起，研究與統計在檢驗結果時亮起；核心型別是所有層的基礎">
+  <img src="https://raw.githubusercontent.com/ting-hong-shieh/quantrail/main/assets/architecture.svg" width="900" alt="會動的流程圖：你的資料經過資料治理與引擎，成為附信任報告的結果；帳務與市場模組在支撐引擎時亮起，研究與統計作為記錄 trial 與分析結果的輔助工具亮起；核心型別是所有層的基礎">
 </p>
 
 設計理由見[架構文件](https://github.com/ting-hong-shieh/quantrail/blob/main/docs/zh-TW/architecture.md)與[架構決策紀錄](https://github.com/ting-hong-shieh/quantrail/tree/main/docs/adr/)。

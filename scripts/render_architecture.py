@@ -1,9 +1,9 @@
 """Animated architecture flow: python scripts/render_architecture.py
 
 The diagram keeps the information of a flowchart (what flows where, what supports the
-engine, what judges the result); the animation encodes the same story. A data packet
+engine, which auxiliary tools accompany the result); the animation encodes the same story. A data packet
 rides the rails from your data to the result, passing behind each box as it is
-processed; each box lights up as the packet reaches it, the supporting arrows light when it reaches the engine, and the judging
+processed; each box lights up as the packet reaches it, the supporting arrows light when it reaches the engine, and the auxiliary-tool
 arrows light when it reaches the result. Disabled under prefers-reduced-motion.
 """
 
@@ -93,8 +93,8 @@ def render() -> str:
   </g>''')
     parts.append(arrow(480, row2, 545, ROW_Y + BOX_H + 6, t_engine))
     parts.append(arrow(673, row2, 625, ROW_Y + BOX_H + 6, t_engine))
-    # Judges of the result.
-    parts.append(box(786, row2, 150, BOX_H, "research", "trial registry", "contracts · holdout",
+    # Auxiliary research tools.
+    parts.append(box(786, row2, 150, BOX_H, "research", "trial registry", "auxiliary tool",
                      "#99F6E4", delay=t_result))
     parts.append(box(786, row2 + 104, 150, BOX_H, "stats", "metrics · bootstrap", "Holm · DSR · PBO",
                      "#99F6E4", delay=t_result))
@@ -107,7 +107,7 @@ def render() -> str:
   <text class="s" x="96" y="{core_y + 27}">instruments · Decimal quantities · money per currency · provenance · trust flags</text>''')
     travel_px = X1 - X0
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img"
-     aria-label="QuantRail architecture: your data flows through data governance and the engine into a result with a trust report; accounting and market modules support the engine; research and statistics judge the result; core types underlie everything">
+     aria-label="QuantRail architecture: your data flows through data governance and the engine into a result with a trust report; accounting and market modules support the engine; research and statistics provide auxiliary tools for recording trials and analysing results; core types underlie everything">
   <title>QuantRail architecture</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="{W}" y2="{H}" gradientUnits="userSpaceOnUse">

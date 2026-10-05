@@ -62,8 +62,8 @@ li::before{{content:"▸ ";color:#F59E0B}}
 <div class="grid"></div>
 {track_svg()}
 <div class="brand"><img src="brand/quantrail-badge.svg">QuantRail</div>
-<h1>Every backtest<br>lies a little.<span>QuantRail tells you where.</span></h1>
-<ul><li>Ledger-accurate to the cent</li><li>Point-in-time, licence-aware data</li><li>Overfitting, measured</li></ul>
+<h1>Every backtest<br>makes assumptions.<span>QuantRail makes them visible.</span></h1>
+<ul><li>Data governance · ledger-accurate simulation</li></ul>
 <div class="url">github.com/ting-hong-shieh/quantrail</div>
 </body></html>'''
 
