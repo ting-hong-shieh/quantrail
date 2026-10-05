@@ -1,0 +1,6 @@
+QuantRail
+Copyright 2026 Ting-Hong Shieh
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+QuantRail ships no market data. Data you load or fetch with QuantRail remains
+subject to the terms of its original source.

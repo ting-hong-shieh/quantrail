@@ -1,0 +1,22 @@
+# Environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+dist/
+build/
+*.egg-info/
+
+# Never commit data or local configuration
+data/
+runs/
+*.parquet
+*.feather
+*.csv
+!tests/fixtures/**/*.csv
+.env
+.env.*
+!.env.example
+local.toml
